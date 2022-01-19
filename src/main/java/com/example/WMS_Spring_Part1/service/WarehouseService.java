@@ -1,8 +1,11 @@
 package com.example.WMS_Spring_Part1.service;
 
 
-import com.example.springwarehouse.model.Item;
-import com.example.springwarehouse.repository.WarehouseRepository;
+import com.example.WMS_Spring_Part1.model.Employee;
+import com.example.WMS_Spring_Part1.model.Item;
+import com.example.WMS_Spring_Part1.model.Warehouse;
+import com.example.WMS_Spring_Part1.repository.UserRepository;
+import com.example.WMS_Spring_Part1.repository.WarehouseRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,11 +19,21 @@ public class WarehouseService {
     return WarehouseRepository.getWarehouseIds();
   }
 
+
   public List<Item> getAllItems(){
     return WarehouseRepository.getAllItems();
   }
 
   public List<Item> getItemsByWarehouse(int id){
+    List<Item> result = null;
+    for(Warehouse x : WarehouseRepository.getWarehouseList()){
+      if(x.getId() == id){
+        result = x.getStock();
+      }
+    }
+    return result;}
 
-  }
+  public Set <String> getCategories(){return WarehouseRepository.getCategories(); }
+
+  public List <Item> getItemsByCategory(String category){return  WarehouseRepository.getItemsByCategory(category);}
 }

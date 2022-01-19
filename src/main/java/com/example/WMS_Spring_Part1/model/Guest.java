@@ -17,7 +17,5 @@ public class Guest extends User{
   @Override
   public void bye(String user) {System.out.println("Goodbye, " + user);}
 }
-© 2022 GitHub, Inc.
-        Terms
-        Privacy
+
 

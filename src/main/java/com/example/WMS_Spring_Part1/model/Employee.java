@@ -1,7 +1,7 @@
 package com.example.WMS_Spring_Part1.model;
 
 import java.util.List;
-import static main.java.TheWarehouseManager.session;
+
 
 public class Employee extends User{
 
@@ -59,12 +59,12 @@ public class Employee extends User{
   @Override
   public void bye(String user) {
     System.out.printf("\nThank you for your visit, %s!\n", this.name);
-    if(session.getSessionActions().size() > 0){
-      System.out.println("In this session you have :");
-      session.listSessionActions();
-    }else{
-      System.out.println("In this session you have not done anything.");
-    }
+   // if(session.getSessionActions().size() > 0){
+   //   System.out.println("In this session you have :");
+    //  session.listSessionActions();
+   //  }else{
+    //  System.out.println("In this session you have not done anything.");
+    // }
   }
 
   public String getPassword(){

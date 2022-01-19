@@ -2,7 +2,7 @@ package com.example.WMS_Spring_Part1.model;
 
 public abstract class User {
   protected String name;
-  private boolean isAuthenticated = false;
+  public boolean isAuthenticated = false;
 
   public User(String userName){
     this.name = userName;

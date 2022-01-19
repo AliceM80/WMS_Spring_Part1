@@ -1,8 +1,8 @@
 package com.example.WMS_Spring_Part1.repository;
 
 
-import com.example.springwarehouse.model.Admin;
-import com.example.springwarehouse.model.Employee;
+import com.example.WMS_Spring_Part1.model.Admin;
+import com.example.WMS_Spring_Part1.model.Employee;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -11,9 +11,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
-
-import static main.java.TheWarehouseApp.IS_EMPLOYEE;
-import static main.java.TheWarehouseApp.SESSION_USER;
 
 
 /**
@@ -104,18 +101,16 @@ public class UserRepository {
     return scanner.nextLine();
   }
 
-  public static boolean validateUser(String userName, Scanner scanner, String password){
+ public static boolean validateUser(String userName, Scanner scanner, String password){
     do{
       if(isUserValid(userName, password)){
         System.out.println("Thank you for verifying your identity.");
-        IS_EMPLOYEE = true;
         return true;
       }else{
         System.out.println("There was a problem verifying your identity. \n" +
                 "Would you like to change either your username or your password? (y/n)");
         if(scanner.nextLine().toLowerCase().startsWith("y")){
           userName = changeUserName(scanner);
-          SESSION_USER.setName(userName);
           password = askPassword(userName, scanner);
           return validateUser(userName, scanner, password);
         }else{
@@ -124,6 +119,8 @@ public class UserRepository {
       }
     }while(!isUserValid(userName, password));
   }
+
+
   public static String changeUserName(Scanner scanner){
     System.out.println("Please input your username.");
     return scanner.nextLine();

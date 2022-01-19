@@ -9,8 +9,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.example.springwarehouse.model.Item;
-import com.example.springwarehouse.model.Warehouse;
+import com.example.WMS_Spring_Part1.model.Item;
+import com.example.WMS_Spring_Part1.model.Warehouse;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -37,7 +38,7 @@ public class WarehouseRepository {
       //ITEM_LIST.clear();
       WAREHOUSE_LIST.clear();
 
-      reader = new BufferedReader(new FileReader("src/main/resources/stock.json"));
+      reader = new BufferedReader(new FileReader("/Users/temporaryadmin/Documents/Java/WMS/WMS_Spring_Part1/data/stock.json"));
       Object data = JSONValue.parse(reader);
       if (data instanceof JSONArray) {
         JSONArray dataArray = (JSONArray) data;
@@ -155,4 +156,5 @@ public class WarehouseRepository {
   public static Set<Integer> getWarehouseIds() {
     return WAREHOUSE_IDS;
   }
+
 }
