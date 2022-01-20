@@ -4,8 +4,8 @@
 
     <p><button><a href="/">Home Page</a></button></p>
 
-    <div th:each="warehouse : ${warehouse}" >
-    <a th:text="'List items from warehouse ' + ${warehouse}" th:href="'/lisItemsByWarehouse/' + ${warehouse}"></a>
+    <div th:each="warehouse : ${warehouses}" >
+        <button> <a th:text="'List items from warehouse ' + ${warehouse}" th:href="'/lisItemsByWarehouse/' + ${warehouse}"></a>
     </div>
 
     <h3>All Items List  <span th:text="'(Count: ' + ${itemCount} + ')'"></span></h3>

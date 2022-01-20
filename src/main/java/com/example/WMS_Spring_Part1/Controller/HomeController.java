@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -47,7 +48,22 @@ public String getListAllItemsePage(HttpServletRequest request, Model model) {
   return "items_list";
 }
 
+  @GetMapping("/lisItemsByWarehouse/{warehouseId}")
+  public String getListItemByWarehousePage(HttpServletRequest request, Model model, @PathVariable("warehouseId") int warehouseId) {
+    restTemplate = new RestTemplate();
+    String itemResourceUrl = "http://localhost:" + request.getLocalPort() + "/warehouse/getAllItems/" + warehouseId;
 
+    List<Item> response = restTemplate.getForObject(
+            itemResourceUrl,
+            List.class
+    );
+
+
+    model.addAttribute("warehouse", warehouseId);
+    model.addAttribute("items", response);
+    model.addAttribute("itemCount", response.size());
+    return "items_list_by_warehouse";
+  }
 }
 
 
