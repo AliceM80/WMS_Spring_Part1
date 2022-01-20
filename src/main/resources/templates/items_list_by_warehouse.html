@@ -9,11 +9,13 @@
 }
 </style>
 <div>
-    <body style="background-color:slategrey;">
-    <h2>Welcome to Warehouse Mangement System</h2>
+    <body style="background-color:slategrey;font-family:'Lucida Grande'">
+    <h2>Welcome to Warehouse Management System</h2>
 
-    <p><button><a href="/">Home Page</a></button></p> <p><button><a href="/listAllItems">List all items</a></button></p>
+    <p><button style="background-color:steelblue;width:250px;height:40px;"><a href="/">Home Page</a></button></p>
+    <p><button style="background-color:lightsteelblue;width:250px;height:40px;"><a href="/listAllItems">List all items</a></button></p>
 
+    <div style="background-color:lightslategray;font-family:'Lucida Grande'">
     <h3 th:text="'Items in warehouse ' + ${warehouseId}" class="head3"></h3>
     <h3 th:text="'(Count: ' + ${itemCount} + ')'" class="head4"></h3>
 
