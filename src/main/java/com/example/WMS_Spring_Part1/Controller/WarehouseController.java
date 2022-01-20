@@ -27,7 +27,7 @@ public class WarehouseController {
 
 
 
-  @GetMapping(value= "/warehouse/getWarehouses")
+  @GetMapping(value= "warehouse/getWarehouses")
   public Set<Integer> getWarehouses(){return warehouseService.getWarehouses();
   }
 
@@ -44,7 +44,7 @@ public class WarehouseController {
   @GetMapping(value="warehouse/getCategories")
   public Set<String> getCategories(){return warehouseService.getCategories();  }
 
-  @GetMapping(value="warehouse/getItemsByCategory/{category}")
+  @GetMapping(value="wc")
   public List<Item> getItemsByCategory(@PathVariable String category)
   {return warehouseService.getItemsByCategory(category);
   }
