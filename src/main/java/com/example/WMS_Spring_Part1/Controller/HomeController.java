@@ -64,6 +64,44 @@ public String getListAllItemsePage(HttpServletRequest request, Model model) {
     model.addAttribute("itemCount", response.size());
     return "items_list_by_warehouse";
   }
+
+
+  @GetMapping("/browseByCategory")
+  public String getListAllCategories(HttpServletRequest request, Model model) {
+
+    restTemplate = new RestTemplate();
+    //a rest call to our rest-endpoint "/warehouse/getCategories"
+    String categoriesResourceUrl = "http://localhost:" + request.getLocalPort() + "/warehouse/getCategories";
+
+    Set<String> categoriesResponse = restTemplate.getForObject(
+            categoriesResourceUrl,
+            Set.class
+    );
+
+    //add the response to the spring ui model.
+    model.addAttribute("categories", categoriesResponse);
+    model.addAttribute("categoryCount", categoriesResponse.size());
+    return "browse_by_category.html";
+  }
+
+
+  @GetMapping("/browseByCategory/{category}")
+  public String getListItemByCategoryPage(HttpServletRequest request, Model model, @PathVariable("category") String category) {
+    restTemplate = new RestTemplate();
+    String itemResourceUrl = "http://localhost:" + request.getLocalPort() + "/warehouse/getItemsByCategory/" + category;
+
+    List<Item> response = restTemplate.getForObject(
+            itemResourceUrl,
+            List.class
+    );
+
+
+    model.addAttribute("category", category);
+    model.addAttribute("items", response);
+    model.addAttribute("itemCount", response.size());
+    return "browse_by_specific_category.html";
+  }
+
 }
 
 

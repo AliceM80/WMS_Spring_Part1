@@ -44,9 +44,11 @@ public class WarehouseController {
   @GetMapping(value="warehouse/getCategories")
   public Set<String> getCategories(){return warehouseService.getCategories();  }
 
-  @GetMapping(value="wc")
-  public List<Item> getItemsByCategory(@PathVariable String category)
-  {return warehouseService.getItemsByCategory(category);
-  }
 
-  }
+ @GetMapping ( "/warehouse/getItemsByCategory/{category}")
+ public List<Item> getItemsByCategory(@PathVariable("category") String category) {
+  return warehouseService.getItemsByCategory(category);
+ }
+
+
+}
