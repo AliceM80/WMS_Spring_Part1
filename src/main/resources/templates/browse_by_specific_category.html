@@ -12,9 +12,9 @@
     <body style="background-color:slategrey;">
     <h2>Welcome to Warehouse Management System</h2>
 
-    <p><button><a href="/">Home Page</a></button></p> <p><button><a href="/browseByCategory">Browse by specific Category</a></button></p>
+    <p><button><a href="/">Home Page</a></button></p> <p><button><a href="/browseByCategory">Browse by specific category</a></button></p>
 
-    <h3 th:text="'Browse by category' + ${warehouseId}" class="head3"></h3>
+    <h3 th:text="'Browse by category: ' + ${category}" class="head3"></h3>
     <h3 th:text="'(Count: ' + ${itemCount} + ')'" class="head4"></h3>
 
     <table>
