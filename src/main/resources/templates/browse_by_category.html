@@ -1,0 +1,22 @@
+<div>
+    <body style="background-color:slategrey;font-family:'Lucida Grande'">
+    <h2>Welcome to Warehouse Management System</h2>
+
+    <p><button style="background-color:steelblue;width:250px;height:40px;"><a href="/">Home Page</a></button></p>
+
+    <div style="background-color:lightslategray;">
+    <h3>All Categories List  <span th:text="'(Count: ' + ${categoryCount} + ')'"></span></h3>
+
+    <table>
+        <tbody>
+        <tr th:each="category : ${categories}">
+          <td> <a th:text="'Category: ' + ${category}" th:href="'/browseByCategory/' + ${category}"></a>
+        </tr>
+        </tbody>
+    </table>
+
+
+</div>
+</div>
+
+

@@ -1,0 +1,27 @@
+<div>
+    <body style="background-color:slategrey;font-family:'Lucida Grande'">
+    <h2>Welcome to Warehouse Mangement System</h2>
+
+    <p><button style="background-color:steelblue; width:250px;height:40px;"><a href="/">Home Page</a></button></p>
+
+    <div th:each="warehouse : ${warehouses}" >
+        <button style="background-color: lightsteelblue; width:250px;height:40px;font-family:'Lucida Grande'"> <a th:text="'List items from warehouse ' + ${warehouse}" th:href="'/lisItemsByWarehouse/' + ${warehouse}"></a>
+    </div>
+
+    <div style="background-color:lightslategray;">
+    <h3>All Items List  <span th:text="'(Count: ' + ${itemCount} + ')'"></span></h3>
+
+    <table>
+        <tbody>
+        <tr th:each="item : ${items}">
+            <td th:text="${item.state}"></td>
+            <td th:text="${item.category}"></td>
+            <td th:text="${item.dateOfStock}"></td>
+            <td th:text="${item.warehouse}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    </div>
+

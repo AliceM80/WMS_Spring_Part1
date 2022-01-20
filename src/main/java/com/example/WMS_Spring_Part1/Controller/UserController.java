@@ -24,17 +24,17 @@ public class UserController {
   }
 
   @GetMapping(value = "/users/getAllEmployee")
-  public List<Employee> getAllEmployees(){return UserRepository.getAllEmployees();}
+  public List<Employee> getAllEmployees(){return userService.getAllEmployees();}
 
   @GetMapping(value = "/users/getAllAdmins")
-  public List<Employee> getAllAdmins(){return UserRepository.getAllEmployees();}
+  public List<Employee> getAllAdmins(){return userService.getAllEmployees();}
 
-  @GetMapping(value = "/users/employee/login")
+  @GetMapping(value = "users/employee/login")
   public boolean employeeLogin(@RequestBody LoginDTO loginDTO){
     return userService.employeeCredentialIsCorrect(loginDTO.getUsername(), loginDTO.getPassword());}
 
 
-  @GetMapping(value = "/users/admin/login")
+  @GetMapping(value = "users/admin/login")
       public boolean adminLogin(@RequestBody LoginDTO loginDTO){
         return userService.employeeCredentialIsCorrect(loginDTO.getUsername(), loginDTO.getPassword());
       }
